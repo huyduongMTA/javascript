@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Create an Animation Container</h2>
+    <p>All animations should be relative to a container element.</p>
+    <div id="container">
+      <div id="animate">My animation will go here</div>
+    </div>
+
+    <h2>Style the Elements</h2>
+    <p>
+      The container element should be created with style = "position: relative".
+      The animation element should be created with style = "position: absolute".
+    </p>
+    <style>
+      #container {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        background: yellow;
+      }
+      #animate {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background: red;
+      }
+    </style>
+    <h2>My First JavaScript Animation</h2>
+    <div id="container">
+      <div id="animate"></div>
+    </div>
+
+    <h2>Animation Code</h2>
+    <p>
+      Các hiệu ứng động trong JavaScript được thực hiện bằng cách lập trình các
+      thay đổi dần dần trong kiểu dáng của một phần tử. Các thay đổi được gọi
+      bằng một bộ đếm thời gian. Khi khoảng thời gian của bộ đếm thời gian nhỏ,
+      hiệu ứng động trông như liên tục.
+    </p>
+    <script>
+      function myMove() {
+        let id = null;
+        const elem = document.getElementById("animate");
+        let pos = 0;
+        clearInterval(id);
+        id = setInterval(frame, 5);
+        function frame() {
+          if (pos == 350) {
+            clearInterval(id);
+          } else {
+            pos++;
+            elem.style.top = pos + "px";
+            elem.style.left = pos + "px";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
