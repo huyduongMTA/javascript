@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- ECMAScript 2015, còn được gọi là ES6, đã giới thiệu JavaScript Classes.
+JavaScript Classes là các mẫu cho các đối tượng JavaScript. -->
+    <!-- Sử dụng từ khóa class để tạo một lớp.
+Luôn luôn thêm một phương thức có tên là constructor(): -->
+    <h1>JavaScript Classes</h1>
+    <p>Creating two car objects from a car class:</p>
+
+    <p id="demo"></p>
+
+    <script>
+      class Car {
+        constructor(name, year) {
+          this.name = name;
+          this.year = year;
+        }
+      }
+
+      const myCar1 = new Car("Ford", 2014);
+      const myCar2 = new Car("Audi", 2019);
+
+      document.getElementById("demo").innerHTML =
+        myCar1.name + " " + myCar2.name;
+      // Phương thức constructor là một phương thức đặc biệt:
+
+      //   Nó phải có tên chính xác là "constructor".
+      //   Nó được thực thi tự động khi một đối tượng mới được tạo ra.
+      //   Nó được sử dụng để khởi tạo các thuộc tính của đối tượng.
+      //   Nếu bạn không định nghĩa một phương thức constructor, JavaScript sẽ thêm một phương thức constructor trống.
+
+      //   Class Methods
+      // Các phương thức lớp được tạo ra bằng cú pháp tương tự như các phương thức đối tượng.
+      //   Sử dụng từ khóa class để tạo một lớp.
+      //   Luôn luôn thêm một phương thức constructor().
+      //   Sau đó, thêm bất kỳ số lượng phương thức nào.
+      class Car {
+        constructor(name, year) {
+          this.name = name;
+          this.year = year;
+        }
+        age() {
+          const date = new Date();
+          return date.getFullYear() - this.year;
+        }
+      }
+
+      const myCar = new Car("Ford", 2014);
+      document.getElementById("demo").innerHTML =
+        "My car is " + myCar.age() + " years old.";
+      // Bạn có thể gửi các tham số cho phương thức của class:
+      class Car {
+        constructor(name, year) {
+          this.name = name;
+          this.year = year;
+        }
+        age(x) {
+          return x - this.year;
+        }
+      }
+
+      const date = new Date();
+      let year = date.getFullYear();
+
+      const my_Car = new Car("Ford", 2014);
+      document.getElementById("demo").innerHTML =
+        "My car is " + myCar.age(year) + " years old.";
+    </script>
+  </body>
+</html>

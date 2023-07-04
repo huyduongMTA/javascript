@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- Các phương thức tĩnh của lớp được định nghĩa trên lớp chính nó. Bạn không
+    thể gọi một phương thức tĩnh trên một đối tượng, chỉ có thể gọi nó trên một
+    lớp đối tượng. -->
+    <h1>JavaScript Class Static Methods</h1>
+    <p>
+      A static method is created with the "static" keyword, and you can only
+      call the method on the class itself.
+    </p>
+
+    <p id="demo"></p>
+
+    <script>
+      class Car {
+        constructor(name) {
+          this.name = name;
+        }
+        static hello() {
+          return "Hello!!";
+        }
+      }
+
+      const myCar = new Car("Ford");
+      document.getElementById("demo").innerHTML = Car.hello();
+      //   Nếu bạn muốn sử dụng đối tượng myCar bên trong phương thức tĩnh, bạn có thể truyền nó như một tham số:
+      class Car {
+        constructor(name) {
+          this.name = name;
+        }
+        static hello(x) {
+          return "Hello " + x.name;
+        }
+      }
+
+      const myCar = new Car("Ford");
+      document.getElementById("demo").innerHTML = Car.hello(myCar);
+    </script>
+  </body>
+</html>
