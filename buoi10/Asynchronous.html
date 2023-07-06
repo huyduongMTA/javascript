@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>JavaScript Functions</h1>
+    <h2>setTimeout() with a Callback</h2>
+
+    <p>Wait 3 seconds (3000 milliseconds) for this page to change.</p>
+
+    <h1 id="demo"></h1>
+    <!-- Các ví dụ được sử dụng trong chương trước đã được đơn giản hóa rất nhiều.
+
+    Mục đích của các ví dụ đó là để minh họa cú pháp của các hàm callback: -->
+    <script>
+      function myDisplayer(something) {
+        document.getElementById("demo").innerHTML = something;
+      }
+
+      function myCalculator(num1, num2, myCallback) {
+        let sum = num1 + num2;
+        myCallback(sum);
+      }
+      myCalculator(5, 5, myDisplayer);
+      //   Khi sử dụng hàm setTimeout() trong JavaScript, bạn có thể chỉ định một hàm callback sẽ được thực thi sau một khoảng thời gian nhất định:
+      setTimeout(myFunction, 3000);
+
+      function myFunction() {
+        document.getElementById("demo").innerHTML = "I love You !!";
+      }
+      //   Khi sử dụng hàm setInterval() trong JavaScript, bạn có thể chỉ định một hàm callback sẽ được thực thi cho mỗi khoảng thời gian lặp lại:
+      setInterval(myFunction, 1000);
+
+      function myFunction() {
+        let d = new Date();
+        document.getElementById("demo").innerHTML =
+          d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+      }
+    </script>
+  </body>
+</html>
